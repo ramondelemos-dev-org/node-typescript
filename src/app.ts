@@ -2,6 +2,7 @@ import * as path from 'path';
 import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
+import * as helmet from 'helmet';
 import Hello from './routes/hello';
 
 // Criando as configurações para o ExpressJS
@@ -21,6 +22,7 @@ class App {
         this.express.use(logger('dev'));
         this.express.use(bodyParser.json());
         this.express.use(bodyParser.urlencoded({ extended: false }));
+        this.express.use(helmet());
     }
 
     //Configuração da nossa API e nossos EndPoint e o famoso Hello 
